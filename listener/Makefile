@@ -10,3 +10,6 @@ push:
 deploy:
 	kubectl apply -f deployment.yaml
 
+undeploy:
+	kubectl delete -f deployment.yaml
+

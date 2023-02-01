@@ -5,16 +5,26 @@
 
 The iot directory contains
 
+```
 iot
 ├── deployment.yaml (has the service and deployment yaml)
 ├── Dockerfile (to create the alpine mosquitto broker)
 └── Makefile
+```
 
+The listener directory contains:
+
+```
+listener/
+├── deployment.yaml
+├── Dockerfile
+├── listener.py
+└── Makefile
+```
 
 ## Starting the mosquitto broker and service
 
 > make deploy
-
 
 
 ## Misc development notes for AWS

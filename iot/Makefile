@@ -10,6 +10,9 @@ push:
 deploy:
 	kubectl apply -f deployment.yaml
 
+undeploy:
+	kubectl delete -f deployment.yaml
+
 status:
 	kubectl get service mosquitto-service
 
