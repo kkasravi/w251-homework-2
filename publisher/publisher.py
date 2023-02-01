@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
   
 
 LOCAL_MQTT_HOST="localhost"
-LOCAL_MQTT_PORT=<your NodePort>
+LOCAL_MQTT_PORT=30926
 LOCAL_MQTT_TOPIC="test_topic"
 
 def on_connect_local(client, userdata, flags, rc):

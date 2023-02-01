@@ -9,3 +9,12 @@ push:
 
 deploy:
 	kubectl apply -f deployment.yaml
+
+status:
+	kubectl get service mosquitto-service
+
+listener:
+	mosquitto_sub -h localhost -p 30926 -t my_topic
+
+publisher:
+	mosquitto_pub -h localhost -p 30926 -t my_topic -m "hello mqtt"

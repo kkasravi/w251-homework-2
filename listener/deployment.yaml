@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: listener
-        image: <yourImage>
+        image: kkasravi/listener:v1
