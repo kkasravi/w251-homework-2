@@ -6,3 +6,6 @@ build:
 
 push:
 	docker push kkasravi/mosquitto:v1
+
+deploy:
+	kubectl apply -f deployment.yaml
