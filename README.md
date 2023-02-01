@@ -1,7 +1,12 @@
 # w251-homework-2
 
+## MQTT 
 
-## Overview
+- topic  kkasravi/face
+- QOS - default 0
+
+
+## Directoryies
 
 The iot directory contains
 
@@ -22,9 +27,13 @@ listener/
 └── Makefile
 ```
 
-## Starting the mosquitto broker and service
+## Starting the edge vm broker and service
 
-> make deploy
+> cd iot && make deploy
+
+## Starting the aws vm broker and listener
+
+> cd listener && make deploy
 
 
 ## Misc development notes for AWS
