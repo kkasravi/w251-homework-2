@@ -6,7 +6,11 @@
 - QOS - default 0
 
 
-## Directoryies
+## S3 bucket
+
+kkasravi-w251-homework-2
+
+## Directories
 
 The iot directory contains
 
