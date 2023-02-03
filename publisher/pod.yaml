@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mosquitto-publisher
+spec:
+  containers:
+  - name: mosquitto-publisher
+    image: kkasravi/mosquitto-publisher:v1
+    ports:
+    - containerPort: 1883

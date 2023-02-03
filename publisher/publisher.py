@@ -1,8 +1,8 @@
 import paho.mqtt.client as mqtt
   
 
-LOCAL_MQTT_HOST="localhost"
-LOCAL_MQTT_PORT=30926
+LOCAL_MQTT_HOST="mosquitto-service"
+LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="kkasravi/face"
 
 def on_connect_local(client, userdata, flags, rc):
