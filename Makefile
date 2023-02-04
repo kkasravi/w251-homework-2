@@ -8,3 +8,7 @@ delete-bucket:
 install-k3s:
 	mkdir $$HOME/.kube/
 	curl -sfL https://get.k3s.io | sh -s - --docker --write-kubeconfig-mode 644 --write-kubeconfig $$HOME/.kube/config
+
+port-forward:
+	kubectl port-forward service/mosquitto-service 1883:1883
+
