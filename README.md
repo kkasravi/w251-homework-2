@@ -1,6 +1,6 @@
 # w251-homework-2
 
-## Overview
+## Instructions
 
 Both the edge device (VM on mac pro) and aws use kubernetes.
 The aws environment should be brought up first by doing:
@@ -9,7 +9,8 @@ The aws environment should be brought up first by doing:
 > pushd storage && make deploy && popd
 
 Then the public ip of aws needs to be added as an environment variable to listener/deployment.yaml
-Prior to deploying capture and listener, you need to run port-forward on the aws machine
+Prior to deploying capture and listener, you need to run port-forward on the aws instance.
+The aws instance needs to have a port opened in its security group for MQTT of 1883.
 
 > make port-forward
 
