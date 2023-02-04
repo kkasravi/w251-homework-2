@@ -2,7 +2,14 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
+import paho.mqtt.client as mqtt
+import tempfile
 
+LOCAL_MQTT_HOST="mosquitto-service"
+LOCAL_MQTT_PORT=1883
+LOCAL_MQTT_TOPIC="kkasravi/face"
+BUCKET_NAME=os.getenv("BUCKET_NAME")
+OBJECT_NAME=os.getenv("OBJECT_NAME")
 
 def upload_file(file_name, bucket, object_name=None):
     """Upload a file to an S3 bucket
@@ -26,6 +33,27 @@ def upload_file(file_name, bucket, object_name=None):
         return False
     return True
 
+
+
+def on_connect_local(client, userdata, flags, rc):
+        print("connected to local broker with rc: " + str(rc))
+        client.subscribe(LOCAL_MQTT_TOPIC)
+	
+def on_message(client,userdata, msg):
+  try:
+    data = str(msg.payload.decode("utf-8"))
+    with open(tmp.name, 'w') as f:
+        f.write(data)
+    upload_file(tmp.name, BUCKET_NAME, OBJECT_NAME)
+  except:
+    print("Unexpected error:", sys.exc_info()[0])
+
+local_mqttclient = mqtt.Client()
+local_mqttclient.on_connect = on_connect_local
+local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
+local_mqttclient.on_message = on_message
 s3 = boto3.client('s3')
-with open("FILE_NAME", "rb") as f:
-    s3.upload_fileobj(f, "BUCKET_NAME", "OBJECT_NAME")
+tmp = tempfile.NamedTemporaryFile()
+
+# go into a loop
+local_mqttclient.loop_forever()

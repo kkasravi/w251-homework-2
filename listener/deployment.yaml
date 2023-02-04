@@ -15,3 +15,6 @@ spec:
       containers:
       - name: mosquitto-listener
         image: kkasravi/mosquitto-listener:v1
+        env:
+        - name: REMOTE_MQTT_HOST
+          value: 
