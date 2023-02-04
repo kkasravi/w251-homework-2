@@ -12,3 +12,11 @@ install-k3s:
 port-forward:
 	kubectl port-forward service/mosquitto-service 1883:1883
 
+deploy-edge:
+	cd broker && make deploy
+	cd listener && make deploy
+	cd capture && make deploy
+
+deploy-aws:
+	cd broker && make deploy
+	cd storage && make deploy
