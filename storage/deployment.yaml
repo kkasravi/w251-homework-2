@@ -19,4 +19,4 @@ spec:
         - name: BUCKET_NAME
           value: kkasravi-w251-homework-2
         - name: OBJECT_NAME
-          value: face
+          value: face.png
