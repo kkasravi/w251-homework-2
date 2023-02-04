@@ -20,3 +20,12 @@ deploy-edge:
 deploy-aws:
 	cd broker && make deploy
 	cd storage && make deploy
+
+undeploy-edge:
+	cd broker && make undeploy
+	cd listener && make undeploy
+	cd capture && make undeploy
+
+undeploy-aws:
+	cd broker && make undeploy
+	cd storage && make undeploy

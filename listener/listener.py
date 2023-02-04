@@ -35,6 +35,7 @@ local_mqttclient.on_message = on_message
 
 remote_mqttclient = None
 if REMOTE_MQTT_HOST is not None and len(REMOTE_MQTT_HOST) > 0:
+    print("trying to connect to ", REMOTE_MQTT_HOST)
     remote_mqttclient = mqtt.Client()
     remote_mqttclient.on_connect = on_connect_remote
     remote_mqttclient.connect(REMOTE_MQTT_HOST, REMOTE_MQTT_PORT, 60)
