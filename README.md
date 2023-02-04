@@ -13,10 +13,11 @@ Prior to deploying capture and listener, you need to run port-forward on the aws
 
 > make port-forward
 
-Then the both the capture and listener deployments can be run:
+Now bring up the broker, listener and capture deployments on the edge device:
 
-> pushd capture && make deploy && popd
+> pushd broker && make deploy && popd
 > pushd listener && make deploy && popd
+> pushd capture && make deploy && popd
 
 
 ## MQTT 
