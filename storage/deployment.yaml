@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage-listener
+spec:
+  selector:
+    matchLabels:
+      app: storage-listener
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: storage-listener
+    spec:
+      containers:
+      - name: storage-listener
+        image: kkasravi/storage-listener:v1
