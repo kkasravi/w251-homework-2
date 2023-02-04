@@ -1,46 +1,34 @@
 # w251-homework-2
 
+## Overview
+
+Both the edge device (VM on mac pro) and aws use kubernetes.
+The aws environment should be brought up first by doing:
+
+> pushd broker && make deploy && popd
+> pushd storage && make deploy && popd
+
+Then the public ip of aws needs to be added as an environment variable to listener/deployment.yaml
+Prior to deploying capture and listener, you need to run port-forward on the aws machine
+
+> make port-forward
+
+Then the both the capture and listener deployments can be run:
+
+> pushd capture && make deploy && popd
+> pushd listener && make deploy && popd
+
+
 ## MQTT 
 
 - topic  kkasravi/face
 - QOS - default 0
 
-
 ## S3 bucket
 
 kkasravi-w251-homework-2
 
-## Directories
-
-The iot directory contains
-
-```
-iot
-├── deployment.yaml (has the service and deployment yaml)
-├── Dockerfile (to create the alpine mosquitto broker)
-└── Makefile
-```
-
-The listener directory contains:
-
-```
-listener/
-├── deployment.yaml
-├── Dockerfile
-├── listener.py
-└── Makefile
-```
-
-## Starting the edge vm broker and service
-
-> cd iot && make deploy
-
-## Starting the aws vm broker and listener
-
-> cd listener && make deploy
-
-
-## Misc development notes for AWS
+## Notes for AWS
 
 - aws ec2 describe-instances | grep PublicDnsName
 
