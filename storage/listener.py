@@ -1,7 +1,6 @@
 import boto3
 from botocore.exceptions import ClientError
 import os
-import sys
 import paho.mqtt.client as mqtt
 import tempfile
 
@@ -37,12 +36,14 @@ def on_message(client, userdata, msg):
     except Exception as e:
         print(f"Unexpected error: {e}")
 
+s3_client = boto3.client('s3')
+tmpfile = tempfile.NamedTemporaryFile()
+
 local_mqttclient = mqtt.Client()
 local_mqttclient.on_connect = on_connect_local
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 local_mqttclient.on_message = on_message
-s3_client = boto3.client('s3')
-tmpfile = tempfile.NamedTemporaryFile()
 
 # go into a loop
+print("before loop_forever")
 local_mqttclient.loop_forever()
