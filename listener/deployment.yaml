@@ -17,6 +17,6 @@ spec:
         image: kkasravi/mosquitto-listener:v1
         env:
         - name: REMOTE_MQTT_HOST
-          value: "172.31.80.192"
+          value: "44.206.253.158"
         - name: REMOTE_MQTT_PORT
           value: "1883"
