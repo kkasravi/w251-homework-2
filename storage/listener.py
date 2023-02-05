@@ -18,6 +18,9 @@ def upload_file(file_name, bucket, object_name):
     except ClientError as e:
         print(f"caught exception {e}")
         return False
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return False
     return True
 
 def on_connect_local(client, userdata, flags, rc):
@@ -31,8 +34,8 @@ def on_message(client, userdata, msg):
         with open(tmpfile.name, 'w') as f:
             f.write(data)
         upload_file(tmpfile.name, BUCKET_NAME, OBJECT_NAME)
-    except:
-        print("Unexpected error:", sys.exc_info()[0])
+    except Exception as e:
+        print(f"Unexpected error: {e}")
 
 local_mqttclient = mqtt.Client()
 local_mqttclient.on_connect = on_connect_local
