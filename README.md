@@ -12,15 +12,19 @@ Next on the edge VM, deploy the edge services by doing:
 
 > make deploy-edge
 
-
-## MQTT 
+## Questions
 
 - topic  kkasravi/face
 - QOS - default 0
 
-## S3 bucket
+## S3 bucket and object location
 
-kkasravi-w251-homework-2
+-bucket: kkasravi-w251-homework-2
+-object: face.png
+
+Calling the following will download face.png
+
+> make get-object
 
 ## Notes for AWS
 
