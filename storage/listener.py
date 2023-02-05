@@ -31,7 +31,7 @@ def on_message(client, userdata, msg):
         print("in on_message")
         data = msg.payload
         with open(tmpfile.name, 'w') as f:
-            f.write(data)
+            f.write(str(data))
         upload_file(tmpfile.name, BUCKET_NAME, OBJECT_NAME)
     except Exception as e:
         print(f"Unexpected error: {e}")
