@@ -2,6 +2,7 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
+import sys
 import paho.mqtt.client as mqtt
 import tempfile
 
@@ -41,7 +42,7 @@ def on_connect_local(client, userdata, flags, rc):
 	
 def on_message(client,userdata, msg):
   try:
-    data = str(msg.payload.decode("utf-8"))
+    data = msg.payload
     with open(tmp.name, 'w') as f:
         f.write(data)
     upload_file(tmp.name, BUCKET_NAME, OBJECT_NAME)
