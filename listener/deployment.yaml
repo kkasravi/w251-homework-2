@@ -17,4 +17,6 @@ spec:
         image: kkasravi/mosquitto-listener:v1
         env:
         - name: REMOTE_MQTT_HOST
-          value: ec2-44-206-253-158.compute-1.amazonaws.com
+          value: "172.31.80.192"
+        - name: REMOTE_MQTT_PORT
+          value: "1883"
