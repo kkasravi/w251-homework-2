@@ -29,7 +29,9 @@ Calling the following will download face.cv2 from the S3 bucket
 
 > make get-object
 
-## Notes for AWS
+Note: face.cv2 has been downloaded locally and checked in.
+
+## My notes for AWS
 
 - aws ec2 describe-instances | grep PublicDnsName
 
