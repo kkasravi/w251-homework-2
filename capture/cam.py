@@ -24,8 +24,8 @@ def detectAndDisplay(frame):
         for (x,y,w,h) in faces:
             center = (x + w//2, y + h//2)
             frame = cv2.ellipse(frame, center, (w//2, h//2), 0, 0, 360, (255, 0, 255), 4)
-    except:
-        print("caught exception")
+    except Exception as e:
+        print(f"could not detect face, caught exception {e}")
     # cv2.imshow('Capture - Face detection', frame)
     img_encode = cv2.imencode('.png', frame)[1]
     data_encode = np.array(img_encode)
