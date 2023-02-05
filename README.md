@@ -3,22 +3,14 @@
 ## Instructions
 
 Both the edge device (VM on mac pro) and aws use kubernetes.
-The aws environment should be brought up first by doing:
+The aws environment should be deployed by doing:
 
-> pushd broker && make deploy && popd
-> pushd storage && make deploy && popd
+> make deploy-aws
 
-Then the public ip of aws needs to be added as an environment variable to listener/deployment.yaml
-Prior to deploying capture and listener, you need to run port-forward on the aws instance.
-The aws instance needs to have a port opened in its security group for MQTT of 1883.
+on the aws instance. In this case I've allocated a t2.medium.
+Next on the edge VM, deploy the edge services by doing:
 
-> make port-forward
-
-Now bring up the broker, listener and capture deployments on the edge device:
-
-> pushd broker && make deploy && popd
-> pushd listener && make deploy && popd
-> pushd capture && make deploy && popd
+> make deploy-edge
 
 
 ## MQTT 

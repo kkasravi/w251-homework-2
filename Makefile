@@ -9,9 +9,6 @@ install-k3s:
 	mkdir $$HOME/.kube/
 	curl -sfL https://get.k3s.io | sh -s - --docker --write-kubeconfig-mode 644 --write-kubeconfig $$HOME/.kube/config
 
-port-forward:
-	kubectl port-forward service/mosquitto-service 1883:1883
-
 deploy-edge:
 	cd broker-edge && make deploy
 	cd listener && make deploy
@@ -29,3 +26,6 @@ undeploy-edge:
 undeploy-aws:
 	cd broker-aws && make undeploy
 	cd storage && make undeploy
+
+list-objects:
+	aws s3api list-objects --bucket kkasravi-w251-homework-2
