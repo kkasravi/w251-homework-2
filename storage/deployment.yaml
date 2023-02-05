@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: storage-listener
-        image: kkasravi/storage-listener:v3
+        image: kkasravi/storage-listener:v4
         env:
         - name: BUCKET_NAME
           value: kkasravi-w251-homework-2
