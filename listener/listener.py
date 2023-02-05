@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 
 
 LOCAL_MQTT_HOST="mosquitto-service"
-LOCAL_MQTT_PORT=1883
+LOCAL_MQTT_PORT=30926
 LOCAL_MQTT_TOPIC="kkasravi/face"
 
 REMOTE_MQTT_HOST=os.getenv("REMOTE_MQTT_HOST")
