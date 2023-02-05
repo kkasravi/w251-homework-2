@@ -9,6 +9,8 @@ LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="kkasravi/face"
 BUCKET_NAME=os.getenv("BUCKET_NAME")
 OBJECT_NAME=os.getenv("OBJECT_NAME")
+ACCESS_KEY=os.getenv("ACCESS_KEY")
+SECRET_KEY=os.getenv("SECRET_KEY")
 
 def upload_file(file_name, bucket, object_name):
     try:
@@ -36,7 +38,7 @@ def on_message(client, userdata, msg):
     except Exception as e:
         print(f"Unexpected error: {e}")
 
-s3_client = boto3.client('s3')
+s3_client = boto3.client('s3', aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
 tmpfile = tempfile.NamedTemporaryFile()
 
 local_mqttclient = mqtt.Client()

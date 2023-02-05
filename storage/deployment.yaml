@@ -20,3 +20,7 @@ spec:
           value: kkasravi-w251-homework-2
         - name: OBJECT_NAME
           value: face.png
+        - name: ACCESS_KEY
+          value: 
+        - name: SECRET_KEY
+          value: 
