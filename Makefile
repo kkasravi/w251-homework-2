@@ -32,3 +32,6 @@ list-objects:
 
 get-object:
 	aws s3api get-object --bucket kkasravi-w251-homework-2 --key face.cv2 face.cv2
+
+rm-object:
+	aws s3 rm s3://kkasravi-w251-homework-2/face.cv2
