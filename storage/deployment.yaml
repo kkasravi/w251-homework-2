@@ -19,7 +19,7 @@ spec:
         - name: BUCKET_NAME
           value: kkasravi-w251-homework-2
         - name: OBJECT_NAME
-          value: face.png
+          value: face.cv2
         - name: ACCESS_KEY
           value: 
         - name: SECRET_KEY

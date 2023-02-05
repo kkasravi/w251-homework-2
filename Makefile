@@ -31,4 +31,4 @@ list-objects:
 	aws s3api list-objects --bucket kkasravi-w251-homework-2
 
 get-object:
-	aws s3api get-object --bucket kkasravi-w251-homework-2 --key face.png face.png
+	aws s3api get-object --bucket kkasravi-w251-homework-2 --key face.cv2 face.cv2

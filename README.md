@@ -23,9 +23,9 @@ The edge environment can be deployed on the edge VM by doing:
 ## S3 bucket and object location
 
 -bucket: kkasravi-w251-homework-2
--object: face.png
+-object: face.cv2
 
-Calling the following will download face.png
+Calling the following will download face.cv2 from the S3 bucket
 
 > make get-object
 
