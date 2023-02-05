@@ -1,4 +1,3 @@
-import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
@@ -25,12 +24,13 @@ def on_connect_local(client, userdata, flags, rc):
     print("connected to local broker with rc: " + str(rc))
     client.subscribe(LOCAL_MQTT_TOPIC)
 	
-def on_message(client,userdata, msg):
+def on_message(client, userdata, msg):
     try:
+        print("in on_message")
         data = msg.payload
-        with open(tmp.name, 'w') as f:
+        with open(tmpfile.name, 'w') as f:
             f.write(data)
-        upload_file(tmp.name, BUCKET_NAME, OBJECT_NAME)
+        upload_file(tmpfile.name, BUCKET_NAME, OBJECT_NAME)
     except:
         print("Unexpected error:", sys.exc_info()[0])
 
@@ -39,7 +39,7 @@ local_mqttclient.on_connect = on_connect_local
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 local_mqttclient.on_message = on_message
 s3_client = boto3.client('s3')
-tmp = tempfile.NamedTemporaryFile()
+tmpfile = tempfile.NamedTemporaryFile()
 
 # go into a loop
 local_mqttclient.loop_forever()
