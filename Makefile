@@ -13,19 +13,19 @@ port-forward:
 	kubectl port-forward service/mosquitto-service 1883:1883
 
 deploy-edge:
-	cd broker && make deploy
+	cd broker-edge && make deploy
 	cd listener && make deploy
 	cd capture && make deploy
 
 deploy-aws:
-	cd broker && make deploy
+	cd broker-aws && make deploy
 	cd storage && make deploy
 
 undeploy-edge:
-	cd broker && make undeploy
+	cd broker-edge && make undeploy
 	cd listener && make undeploy
 	cd capture && make undeploy
 
 undeploy-aws:
-	cd broker && make undeploy
+	cd broker-aws && make undeploy
 	cd storage && make undeploy
