@@ -3,13 +3,15 @@
 ## Instructions
 
 Both the edge device (VM on mac pro) and AWS use kubernetes.
-The AWS environment should be deployed after ssh'ing into an AWS instance by doing:
+Prior to deploying the AWS services, you need to update storage/deployment.yaml
+to add your ACCESS_KEY and SECRET_KEY variables. The AWS environment can be deployed 
+after ssh'ing into an AWS instance by doing:
 
 > make deploy-aws
 
 The AWS instance I've allocated is a t2.medium with an extended volume.
 
-The edge environment should be deployed on the edge VM by doing:
+The edge environment can be deployed on the edge VM by doing:
 
 > make deploy-edge
 
